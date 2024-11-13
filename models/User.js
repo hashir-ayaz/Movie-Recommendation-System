@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
@@ -19,18 +18,24 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  profilePhoto: {
-    type: String,
-    unique: true,
-  },
-
   moviePreferences: {
-    type: Array,
+    genre: [String],
+    director: [String],
+    actor: [String],
   },
-  personalWishlist: {},
+  personalWishlist: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Movie",
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,
+  },
+  profilePhoto: {
+    type: String,
+    default: "https://via.placeholder.com/150",
   },
 });
 
