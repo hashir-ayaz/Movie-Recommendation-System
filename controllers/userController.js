@@ -104,3 +104,64 @@ exports.updateUser = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+exports.deleteUser = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const user = await User.findByIdAndDelete(id);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+exports.getUser = async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(400).json({ message: "User does not exist" });
+    }
+
+    return res.status(200).json({ user });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+exports.addReview = async (req, res) => {
+  const { userId, movieId, reviewText, ratingValue } = req.body;
+
+  try {
+    const user = await User.findById(userId);
+
+    // check if user exists
+    if (!user) {
+      return res.status(400).json({ message: "User does not exist" });
+    }
+
+    // check if movie exists
+    const movie = await Movie.findById(movieId);
+    if (!movie) {
+      return res.status(400).json({ message: "Movie does not exist" });
+    }
+
+    // create review
+    const review = new Review({
+      user: userId,
+      movie: movieId,
+      reviewText,
+      ratingValue,
+    });
+
+    // save review
+    await review.save();
+    return res
+      .status(200)
+      .json({ review: review, message: "Review added successfully" });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};

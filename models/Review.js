@@ -18,7 +18,7 @@ const ReviewSchema = new Schema({
     min: [1, "Rating must be at least 1"],
     max: [5, "Rating must be at most 5"],
   },
-  review: {
+  reviewText: {
     type: String,
     required: false,
   },
@@ -28,6 +28,6 @@ const ReviewSchema = new Schema({
   },
 });
 
-const Rating = mongoose.model("Review", ReviewSchema);
+const Review = mongoose.model("Review", ReviewSchema);
 
-module.exports = Rating;
+module.exports = Review;

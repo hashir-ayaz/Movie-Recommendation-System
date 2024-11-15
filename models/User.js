@@ -24,9 +24,18 @@ const UserSchema = new Schema({
     actor: [String],
   },
   personalWishlist: [
+    //movie that user wants to watch
     {
-      type: Schema.Types.ObjectId,
-      ref: "Movie",
+      name: {
+        type: String,
+        required: true,
+      },
+      items: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "Movie",
+        },
+      ],
     },
   ],
   createdAt: {
