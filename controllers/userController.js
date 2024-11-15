@@ -31,7 +31,9 @@ exports.login = async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
     // if password is correct, generate token
-    const token = auth.generateToken();
+    const token = auth.generateToken({
+      userId: user._id,
+    });
     // return user and token
     return res.status(200).json({ user, token });
   } catch (error) {
@@ -80,27 +82,30 @@ exports.register = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
   const { userId } = req.params;
-  const { email, username, profilePhoto, moviePreferences, personalWishlist } =
-    req.body;
 
   try {
-    // check if user exists
+    // Check if user exists
     const user = await User.findById(userId);
-    // if user does not exist, return error
+
+    // If user does not exist, return error
     if (!user) {
-      return res.status(400).json({ message: "User does not exist" });
+      return res.status(404).json({ message: "User does not exist" });
     }
-    // if user exists, update user
-    user.email = email;
-    user.username = username;
-    user.profilePhoto = profilePhoto;
-    user.moviePreferences = moviePreferences;
-    user.personalWishlist = personalWishlist;
-    // save user
+
+    // Iterate over request body keys and update only the provided fields
+    Object.keys(req.body).forEach((key) => {
+      if (user[key] !== undefined) {
+        user[key] = req.body[key];
+      }
+    });
+
+    // Save updated user
     await user.save();
-    // return updated user
+
+    // Return updated user
     return res.status(200).json({ user });
   } catch (error) {
+    // Handle errors
     return res.status(500).json({ message: error.message });
   }
 };
