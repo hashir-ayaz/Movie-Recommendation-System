@@ -89,11 +89,37 @@ exports.deleteMovie = async (req, res) => {
 };
 
 exports.updateMovie = async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.params; // Extract movie ID from route parameter
 
-  // iterate through the keys in the request body
-  const keys = Object.keys(req.body);
-  console.log(keys);
+  try {
+    // Find the movie by ID
+    const movie = await Movie.findById(id);
+
+    // If movie does not exist, return an error
+    if (!movie) {
+      return res.status(404).json({ message: "Movie not found" });
+    }
+
+    // Update only the fields provided in the request body
+    Object.keys(req.body).forEach((key) => {
+      if (movie[key] !== undefined) {
+        movie[key] = req.body[key];
+      }
+    });
+
+    // Save the updated movie
+    const updatedMovie = await movie.save();
+
+    // Return the updated movie
+    return res
+      .status(200)
+      .json({ message: "Movie updated successfully", movie: updatedMovie });
+  } catch (error) {
+    console.error("Error updating movie:", error);
+    return res
+      .status(500)
+      .json({ message: "Internal server error", error: error.message });
+  }
 };
 
 exports.getMovie = async (req, res) => {
@@ -105,4 +131,8 @@ exports.getMovie = async (req, res) => {
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
+};
+
+exports.addReview = async (req, res) => {
+  console.log("addReview");
 };

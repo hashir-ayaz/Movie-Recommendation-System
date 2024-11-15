@@ -14,6 +14,4 @@ router.delete("/:userId", userController.deleteUser);
 
 router.get("/:userId", userController.getUser);
 
-router.post("/review", userController.addReview);
-
 module.exports = router;
