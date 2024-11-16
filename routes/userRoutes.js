@@ -3,16 +3,30 @@ const router = express.Router();
 const userController = require("../controllers/userController");
 const { protect, adminProtect } = require("../middleware/authMiddleware");
 
-router
-  .get("/", userController.getAllUsers)
-  .post("/login", userController.login)
-  .post("/register", userController.register)
-  .patch("/:userId", userController.updateUser)
-  .delete("/:userId", userController.deleteUser)
-  .get("/:userId", userController.getUser)
-  .get("/:userId/lists", userController.getUserLists)
-  .post("/:userId/lists", userController.addList)
-  .post("/:userId/lists/:listId/follow", userController.followList)
-  .post("/:userId/wishlist/:movieId", userController.addToWishlist);
+// Authentication Routes
+router.post("/login", userController.login);
+router.post("/register", userController.register);
+
+// User Management Routes
+router.get("/", protect, adminProtect, userController.getAllUsers); // Admin protected
+router.get("/:userId", protect, userController.getUser);
+router.patch("/:userId", protect, userController.updateUser);
+router.delete("/:userId", protect, userController.deleteUser);
+
+// User List Routes
+router.get("/:userId/lists", protect, userController.getUserLists);
+router.post("/:userId/lists", protect, userController.addList);
+router.post(
+  "/:userId/lists/:listId/follow",
+  protect,
+  userController.followList
+);
+
+// Wishlist Routes
+router.post(
+  "/:userId/wishlist/:movieId",
+  protect,
+  userController.addToWishlist
+);
 
 module.exports = router;
