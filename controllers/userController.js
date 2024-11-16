@@ -249,3 +249,29 @@ exports.followList = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+exports.addToWishlist = async (req, res) => {
+  const { userId, movieId } = req.params;
+
+  try {
+    // check if user exists
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(400).json({ message: "User does not exist" });
+    }
+
+    // check if movie exists
+    const movie = await Movie.findById(movieId);
+    if (!movie) {
+      return res.status(400).json({ message: "Movie does not exist" });
+    }
+
+    // add movie to user's wishlist
+    user.personalWishlist.push(movieId);
+
+    user.save();
+    return res.status(200).json({ user, message: "Movie added to wishlist" });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};

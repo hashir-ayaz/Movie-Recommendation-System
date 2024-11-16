@@ -189,3 +189,17 @@ exports.getReviews = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+exports.searchMovies = async (req, res) => {
+  const { query } = req.query;
+
+  try {
+    const movies = await Movie.find({
+      title: { $regex: query, $options: "i" },
+    });
+
+    return res.status(200).json({ movies });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};

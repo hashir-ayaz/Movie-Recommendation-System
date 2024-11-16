@@ -11,6 +11,7 @@ router
   .get("/:userId", userController.getUser)
   .get("/:userId/lists", userController.getUserLists)
   .post("/:userId/lists", userController.addList)
-  .post("/:userId/lists/:listId/follow", userController.followList);
+  .post("/:userId/lists/:listId/follow", userController.followList)
+  .post("/:userId/wishlist/:movieId", userController.addToWishlist);
 
 module.exports = router;
