@@ -34,6 +34,10 @@ const ArticleSchema = new mongoose.Schema(
       type: String, // URL to a cover image for the article
       default: "",
     },
+    views: {
+      type: Number, // Track the number of views the article receives
+      default: 0,
+    },
     isPublished: {
       type: Boolean, // Flag to indicate whether the article is published
       default: false,
