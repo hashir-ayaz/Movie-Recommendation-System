@@ -7,6 +7,8 @@ const path = require("path");
 const dotenv = require("dotenv");
 const userRoutes = require("./routes/userRoutes");
 const movieRoutes = require("./routes/movieRoutes");
+const articleRoutes = require("./routes/articleRoutes");
+const forumRoutes = require("./routes/forumRoutes");
 const PORT = process.env.PORT || 3000;
 
 dotenv.config();
@@ -16,6 +18,8 @@ app.use(express.json());
 
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/movies", movieRoutes);
+app.use("/forum", forumRoutes);
+app.use("/articles", articleRoutes);
 
 connectDB();
 

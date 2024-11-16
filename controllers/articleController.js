@@ -1,6 +1,4 @@
 const Article = require("../models/Article");
-const Movie = require("../models/Movie");
-const Actor = require("../models/Actor");
 
 // Fetch all articles
 exports.getAllArticles = async (req, res) => {
@@ -36,9 +34,10 @@ exports.getAllArticles = async (req, res) => {
 // Fetch a single article by ID
 exports.getArticleById = async (req, res) => {
   try {
-    const article = await Article.findById(req.params.id)
-      .populate("relatedMovies", "title genre releaseDate")
-      .populate("relatedActors", "name biography");
+    const article = await Article.findById(req.params.id).populate(
+      "author",
+      "name email"
+    );
 
     if (!article) return res.status(404).json({ message: "Article not found" });
 
@@ -52,23 +51,13 @@ exports.getArticleById = async (req, res) => {
 // Create a new article
 exports.createArticle = async (req, res) => {
   try {
-    const {
-      title,
-      content,
-      category,
-      tags,
-      relatedMovies,
-      relatedActors,
-      coverImage,
-    } = req.body;
+    const { title, content, category, tags, coverImage } = req.body;
 
     const newArticle = new Article({
       title,
       content,
       category,
       tags,
-      relatedMovies,
-      relatedActors,
       coverImage,
       author: req.user._id,
     });
@@ -88,15 +77,7 @@ exports.createArticle = async (req, res) => {
 // Update an article
 exports.updateArticle = async (req, res) => {
   try {
-    const {
-      title,
-      content,
-      category,
-      tags,
-      relatedMovies,
-      relatedActors,
-      coverImage,
-    } = req.body;
+    const { title, content, category, tags, coverImage } = req.body;
 
     const article = await Article.findById(req.params.id);
     if (!article) return res.status(404).json({ message: "Article not found" });
@@ -108,12 +89,11 @@ exports.updateArticle = async (req, res) => {
         .json({ message: "Unauthorized to update this article" });
     }
 
+    // Update fields if provided
     article.title = title || article.title;
     article.content = content || article.content;
     article.category = category || article.category;
     article.tags = tags || article.tags;
-    article.relatedMovies = relatedMovies || article.relatedMovies;
-    article.relatedActors = relatedActors || article.relatedActors;
     article.coverImage = coverImage || article.coverImage;
 
     const updatedArticle = await article.save();
