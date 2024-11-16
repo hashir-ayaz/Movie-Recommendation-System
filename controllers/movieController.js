@@ -1,4 +1,6 @@
 const Movie = require("../models/Movie");
+const Review = require("../models/Review");
+const User = require("../models/User");
 
 exports.getMovies = async (req, res) => {
   try {
@@ -135,4 +137,55 @@ exports.getMovie = async (req, res) => {
 
 exports.addReview = async (req, res) => {
   console.log("addReview");
+  const { user, movie, ratingValue, reviewText } = req.body;
+
+  try {
+    // check if user exists
+    const userFound = await User.findById(user);
+    if (!userFound) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // check if movie exists
+    const movieFound = await Movie.findById(movie);
+    if (!movieFound) {
+      return res.status(404).json({ message: "Movie not found" });
+    }
+
+    // Create a new review instance
+    const review = new Review({
+      user: userFound._id,
+      movie: movieFound._id,
+      ratingValue,
+      reviewText,
+    });
+
+    // Save the review to the database
+    const savedReview = await review.save();
+
+    // push the review to the movie reviews array
+    movieFound.reviews.push(savedReview);
+    await movieFound.save();
+
+    // Return success response
+    return res
+      .status(201)
+      .json({ message: "Review added successfully", review: savedReview });
+  } catch (error) {
+    console.error("Error adding review:", error);
+    return res
+      .status(500)
+      .json({ message: "Internal server error", error: error.message });
+  }
+};
+
+exports.getReviews = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const movie = await Movie.findById(id).populate("reviews");
+    return res.status(200).json({ reviews: movie.reviews });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
 };

@@ -9,6 +9,7 @@ router
   .delete("/:id", movieController.deleteMovie)
   .patch("/:id", movieController.updateMovie)
   .get("/:id", movieController.getMovie)
-  .post("/:id/reviews", movieController.addReview);
+  .post("/review", movieController.addReview)
+  .get("/:id/reviews", movieController.getReviews);
 
 module.exports = router;

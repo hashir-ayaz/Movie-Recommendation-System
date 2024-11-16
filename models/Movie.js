@@ -66,6 +66,12 @@ const MovieSchema = new Schema({
     type: String,
     required: [true, "Parental guidance information is required"],
   },
+  reviews: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Review",
+    },
+  ],
 });
 
 const Movie = mongoose.model("Movie", MovieSchema);
