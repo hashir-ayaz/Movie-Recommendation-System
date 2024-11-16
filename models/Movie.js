@@ -16,18 +16,18 @@ const MovieSchema = new Schema({
   ],
   director: {
     type: mongoose.Schema.Types.ObjectId,
-    required: [true, "Director is required"],
+    required: [false],
     ref: "ActorDirectorCrew",
   },
   cast: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      required: [true, "Cast member ID is required"],
+      required: false,
       ref: "ActorDirectorCrew",
     },
   ],
   imdbRating: {
-    type: String,
+    type: Number,
     required: [true, "IMDB rating is required"],
     unique: true,
   },
