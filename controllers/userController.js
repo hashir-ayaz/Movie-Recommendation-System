@@ -1,6 +1,9 @@
 // user controller
 const User = require("../models/User");
 const auth = require("../utils/authentication");
+const Review = require("../models/Review");
+const Movie = require("../models/Movie");
+const List = require("../models/List");
 
 exports.getAllUsers = async (req, res) => {
   try {
@@ -166,6 +169,82 @@ exports.addReview = async (req, res) => {
     return res
       .status(200)
       .json({ review: review, message: "Review added successfully" });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+exports.addList = async (req, res) => {
+  const { userId } = req.params;
+  const { name, movies } = req.body;
+
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(400).json({ message: "User does not exist" });
+    }
+
+    const list = new List({
+      name,
+      owner: userId,
+      movies,
+    });
+
+    await list.save();
+
+    user.lists.push(list._id);
+    await user.save();
+
+    return res.status(200).json({ list, message: "List added successfully" });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+exports.getUserLists = async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const user = await User.findById(userId).populate({
+      path: "lists",
+      populate: {
+        path: "movies", // Populate the movies field in the lists
+        model: "Movie", // Reference to the Movie model
+      },
+    });
+    if (!user) {
+      return res.status(400).json({ message: "User does not exist" });
+    }
+
+    return res.status(200).json({ userLists: user.lists });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+exports.followList = async (req, res) => {
+  const { userId, listId } = req.params;
+
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(400).json({ message: "User does not exist" });
+    }
+
+    const list = await List.findById(listId);
+    if (!list) {
+      return res.status(400).json({ message: "List does not exist" });
+    }
+
+    list.followers.push(userId);
+    await list.save();
+
+    user.followedLists.push(listId);
+    await user.save();
+
+    return res
+      .status(200)
+      .json({ list, message: "List followed successfully" });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }

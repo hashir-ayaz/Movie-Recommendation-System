@@ -46,6 +46,18 @@ const UserSchema = new Schema({
     type: String,
     default: "https://via.placeholder.com/150",
   },
+  lists: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "List",
+    },
+  ],
+  followedLists: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "List",
+    },
+  ],
 });
 
 const User = mongoose.model("User", UserSchema);
