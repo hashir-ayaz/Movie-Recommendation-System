@@ -17,4 +17,7 @@ router.get("/:id", movieController.getMovie); // Get details of a single movie
 router.post("/review", protect, movieController.addReview); // Add a movie review
 router.get("/:id/reviews", movieController.getReviews); // Get reviews for a movie
 
+// search movies
+router.get("/search", movieController.searchMovies);
+
 module.exports = router;

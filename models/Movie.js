@@ -26,6 +26,11 @@ const MovieSchema = new Schema({
       ref: "ActorDirectorCrew",
     },
   ],
+  imdbRating: {
+    type: String,
+    required: [true, "IMDB rating is required"],
+    unique: true,
+  },
   releaseDate: {
     type: Date,
     required: [true, "Release date is required"],
@@ -99,6 +104,20 @@ const MovieSchema = new Schema({
       category: { type: String, required: true }, // Category (e.g., Best Actor, Best Picture)
       year: { type: Number, required: true }, // Year the award was received or nominated
       won: { type: Boolean, required: true }, // Whether the award was won
+    },
+  ],
+  // Additional Fields for Advanced Filtering
+  countryOfOrigin: {
+    type: String, // E.g., "United States", "India", "France"
+    required: true,
+  },
+  language: {
+    type: String, // E.g., "English", "French", "Spanish"
+    required: true,
+  },
+  keywords: [
+    {
+      type: String, // Keywords for advanced filtering (e.g., "based on a true story", "superhero")
     },
   ],
 });
