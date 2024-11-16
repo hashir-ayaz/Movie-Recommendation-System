@@ -140,13 +140,13 @@ exports.addReview = async (req, res) => {
   const { user, movie, ratingValue, reviewText } = req.body;
 
   try {
-    // check if user exists
+    // Check if user exists
     const userFound = await User.findById(user);
     if (!userFound) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    // check if movie exists
+    // Check if movie exists
     const movieFound = await Movie.findById(movie);
     if (!movieFound) {
       return res.status(404).json({ message: "Movie not found" });
@@ -163,14 +163,26 @@ exports.addReview = async (req, res) => {
     // Save the review to the database
     const savedReview = await review.save();
 
-    // push the review to the movie reviews array
-    movieFound.reviews.push(savedReview);
+    // Push the review to the movie's reviews array
+    movieFound.reviews.push(savedReview._id);
+
+    // Recalculate the average rating
+    const totalRatings = movieFound.reviews.length + 1; // Include the current review
+    const newAverageRating =
+      (movieFound.averageRating * movieFound.reviews.length + ratingValue) /
+      totalRatings;
+
+    movieFound.averageRating = newAverageRating;
+
+    // Save the updated movie with new average rating
     await movieFound.save();
 
     // Return success response
-    return res
-      .status(201)
-      .json({ message: "Review added successfully", review: savedReview });
+    return res.status(201).json({
+      message: "Review added successfully",
+      review: savedReview,
+      averageRating: newAverageRating,
+    });
   } catch (error) {
     console.error("Error adding review:", error);
     return res

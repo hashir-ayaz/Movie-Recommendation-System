@@ -15,14 +15,15 @@ const MovieSchema = new Schema({
     },
   ],
   director: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
     required: [true, "Director is required"],
+    ref: "ActorDirectorCrew",
   },
   cast: [
     {
       type: mongoose.Schema.Types.ObjectId,
       required: [true, "Cast member ID is required"],
-      ref: "Actor",
+      ref: "ActorDirectorCrew",
     },
   ],
   releaseDate: {
@@ -43,7 +44,7 @@ const MovieSchema = new Schema({
   },
   coverPhoto: {
     type: String,
-    required: [true, "Cover photo URL is required"],
+    required: [false],
   },
   trivia: [
     {
@@ -70,6 +71,34 @@ const MovieSchema = new Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Review",
+    },
+  ],
+  // Box Office Information
+  boxOffice: {
+    openingWeekend: {
+      type: Number, // Earnings in dollars
+      default: 0,
+    },
+    totalDomestic: {
+      type: Number, // Total domestic revenue
+      default: 0,
+    },
+    totalInternational: {
+      type: Number, // Total international revenue
+      default: 0,
+    },
+    totalWorldwide: {
+      type: Number, // Total worldwide revenue (calculated from domestic + international)
+      default: 0,
+    },
+  },
+  // Awards and Nominations
+  awards: [
+    {
+      name: { type: String, required: true }, // Award name (e.g., Oscars, Golden Globes)
+      category: { type: String, required: true }, // Category (e.g., Best Actor, Best Picture)
+      year: { type: Number, required: true }, // Year the award was received or nominated
+      won: { type: Boolean, required: true }, // Whether the award was won
     },
   ],
 });
