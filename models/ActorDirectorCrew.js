@@ -35,6 +35,10 @@ const ActorDirectorCrewSchema = new Schema({
       required: [true, "Photo URL is required"],
     },
   ],
+  searchedTimes: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const ActorDirectorCrew = mongoose.model(

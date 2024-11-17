@@ -9,6 +9,7 @@ const forumRoutes = require("./routes/forumRoutes");
 const actorDirectorCrewRoutes = require("./routes/actordirectorcrewRoutes");
 const errorHandler = require("./middleware/errorHandler");
 const reminderRoutes = require("./routes/reminderRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.use("/api/v1/forums", forumRoutes);
 app.use("/api/v1/articles", articleRoutes);
 app.use("/api/v1/actor-director-crew", actorDirectorCrewRoutes);
 app.use("/api/v1/reminders", reminderRoutes);
+app.use("/api/v1/admin", adminRoutes);
 
 // Global Error Handler
 app.use(errorHandler);
