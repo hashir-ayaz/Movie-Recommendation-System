@@ -1,6 +1,7 @@
 const Forum = require("../models/Forum");
 const Post = require("../models/Post");
 const User = require("../models/User");
+const mongoose = require("mongoose");
 
 // Forum Controllers
 exports.getAllForums = async (req, res) => {
@@ -37,13 +38,23 @@ exports.getForumById = async (req, res) => {
   const { forumId } = req.params;
 
   try {
+    if (!mongoose.isValidObjectId(forumId)) {
+      return res.status(400).json({
+        message: "Invalid Forum ID. Please provide a valid ObjectId.",
+      });
+    }
+
     const forum = await Forum.findById(forumId).populate("posts");
-    if (!forum) return res.status(404).json({ message: "Forum not found" });
+    if (!forum) {
+      return res.status(404).json({ message: "Forum not found" });
+    }
 
     res.status(200).json({ forum });
   } catch (error) {
-    console.error("Error fetching forum:", error);
-    res.status(500).json({ message: "Internal server error" });
+    console.error(`Error fetching forum with ID ${forumId}:`, error.message);
+    res.status(500).json({
+      message: "An unexpected error occurred. Please try again later.",
+    });
   }
 };
 
@@ -127,6 +138,12 @@ exports.getPostById = async (req, res) => {
   const { postId } = req.params;
 
   try {
+    // check if post id is a valid object id
+    if (!mongoose.isValidObjectId(postId)) {
+      return res.status(400).json({
+        message: "Invalid Post ID. Please provide a valid ObjectId.",
+      });
+    }
     const post = await Post.findById(postId).populate("createdBy");
     if (!post) return res.status(404).json({ message: "Post not found" });
 
@@ -142,6 +159,13 @@ exports.updatePost = async (req, res) => {
   const { title, content } = req.body;
 
   try {
+    // check if post id is a valid object id
+    if (!mongoose.isValidObjectId(postId)) {
+      return res.status(400).json({
+        message: "Invalid Post ID. Please provide a valid ObjectId.",
+      });
+    }
+
     const post = await Post.findById(postId);
     if (!post) return res.status(404).json({ message: "Post not found" });
 
@@ -166,6 +190,13 @@ exports.deletePost = async (req, res) => {
   const { postId } = req.params;
 
   try {
+    // check if post id is a valid object id
+    if (!mongoose.isValidObjectId(postId)) {
+      return res.status(400).json({
+        message: "Invalid Post ID. Please provide a valid ObjectId.",
+      });
+    }
+
     const post = await Post.findById(postId);
     if (!post) return res.status(404).json({ message: "Post not found" });
 
@@ -175,7 +206,7 @@ exports.deletePost = async (req, res) => {
         .json({ message: "You can only delete your own posts" });
     }
 
-    await post.remove();
+    await post.deleteOne();
     res.status(200).json({ message: "Post deleted successfully" });
   } catch (error) {
     console.error("Error deleting post:", error);

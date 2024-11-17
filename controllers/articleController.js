@@ -1,4 +1,5 @@
 const Article = require("../models/Article");
+const mongoose = require("mongoose");
 
 // Fetch all articles
 exports.getAllArticles = async (req, res) => {
@@ -34,12 +35,23 @@ exports.getAllArticles = async (req, res) => {
 // Fetch a single article by ID
 exports.getArticleById = async (req, res) => {
   try {
+    // check if article id is a valid ObjectId
+    if (!mongoose.isValidObjectId(req.params.id)) {
+      return res.status(400).json({
+        message: "Invalid Article ID. Please provide a valid ObjectId.",
+      });
+    }
+
     const article = await Article.findById(req.params.id).populate(
       "author",
       "name email"
     );
 
     if (!article) return res.status(404).json({ message: "Article not found" });
+
+    // increment article views
+    article.views += 1;
+    await article.save();
 
     res.status(200).json({ article });
   } catch (error) {
@@ -70,6 +82,28 @@ exports.createArticle = async (req, res) => {
     });
   } catch (error) {
     console.error("Error creating article:", error);
+
+    // Handle ValidationError
+    if (error.name === "ValidationError") {
+      const errors = {};
+      Object.keys(error.errors).forEach((key) => {
+        errors[key] = error.errors[key].message;
+      });
+
+      return res.status(400).json({
+        message: "Validation error",
+        errors,
+      });
+    }
+
+    // Handle CastError (e.g., invalid ObjectId)
+    if (error.name === "CastError") {
+      return res.status(400).json({
+        message: `Invalid value for ${error.path}: ${error.value}`,
+      });
+    }
+
+    // Handle other errors
     res.status(500).json({ message: "Internal server error" });
   }
 };
@@ -78,6 +112,13 @@ exports.createArticle = async (req, res) => {
 exports.updateArticle = async (req, res) => {
   try {
     const { title, content, category, tags, coverImage } = req.body;
+
+    // check if article id is a valid ObjectId
+    if (!mongoose.isValidObjectId(req.params.id)) {
+      return res.status(400).json({
+        message: "Invalid Article ID. Please provide a valid ObjectId.",
+      });
+    }
 
     const article = await Article.findById(req.params.id);
     if (!article) return res.status(404).json({ message: "Article not found" });
@@ -111,6 +152,13 @@ exports.updateArticle = async (req, res) => {
 // Delete an article
 exports.deleteArticle = async (req, res) => {
   try {
+    // check if article id is a valid ObjectId
+    if (!mongoose.isValidObjectId(req.params.id)) {
+      return res.status(400).json({
+        message: "Invalid Article ID. Please provide a valid ObjectId.",
+      });
+    }
+
     const article = await Article.findById(req.params.id);
     if (!article) return res.status(404).json({ message: "Article not found" });
 
@@ -121,7 +169,7 @@ exports.deleteArticle = async (req, res) => {
         .json({ message: "Unauthorized to delete this article" });
     }
 
-    await article.remove();
+    await article.deleteOne();
 
     res.status(200).json({ message: "Article deleted successfully" });
   } catch (error) {
@@ -148,24 +196,6 @@ exports.searchArticles = async (req, res) => {
     res.status(200).json({ articles });
   } catch (error) {
     console.error("Error searching articles:", error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-};
-
-// Increment the view count for an article
-exports.incrementViewCount = async (req, res) => {
-  try {
-    const article = await Article.findById(req.params.id);
-    if (!article) return res.status(404).json({ message: "Article not found" });
-
-    article.views += 1;
-    await article.save();
-
-    res
-      .status(200)
-      .json({ message: "View count updated", views: article.views });
-  } catch (error) {
-    console.error("Error incrementing view count:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };

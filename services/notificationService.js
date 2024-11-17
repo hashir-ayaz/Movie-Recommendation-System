@@ -1,3 +1,4 @@
+// TODO need to implement this service to send notifications to users based on their preferences
 const cron = require("node-cron");
 const Reminder = require("./models/Reminder");
 const User = require("./models/User");
