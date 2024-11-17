@@ -3,6 +3,7 @@ const auth = require("../utils/authUtils");
 const Review = require("../models/Review");
 const List = require("../models/List");
 const mongoose = require("mongoose");
+const Movie = require("../models/Movie");
 const {
   findUserById,
   findMovieById,
@@ -242,5 +243,68 @@ exports.addToWishlist = async (req, res) => {
     return res.status(200).json({ user, message: "Movie added to wishlist" });
   } catch (error) {
     handleError(res, error);
+  }
+};
+
+exports.getPersonalisedRecommendations = async (req, res) => {
+  console.log("getPersonalisedRecommendations");
+
+  const { moviePreferences } = req.user;
+  console.log("moviePreferences for this user", moviePreferences);
+
+  try {
+    if (!moviePreferences) {
+      return res.status(400).json({
+        message: "User movie preferences are not set.",
+      });
+    }
+
+    const { genre = [], director = [], actor = [] } = moviePreferences;
+
+    // Fetch all movies from the database
+    const allMovies = await Movie.find()
+      .populate("director", "name")
+      .populate("cast", "name");
+
+    // Calculate scores based on matching preferences
+    const recommendations = allMovies
+      .map((movie) => {
+        let score = 0;
+
+        // Match genres
+        if (movie.genre) {
+          score += movie.genre.filter((g) => genre.includes(g)).length;
+        }
+
+        // Match directors
+        if (movie.director && director.includes(movie.director.name)) {
+          score += 1;
+        }
+
+        // Match cast/actors
+        if (movie.cast) {
+          const matchedActors = movie.cast.filter((actorObj) =>
+            actor.includes(actorObj.name)
+          );
+          score += matchedActors.length;
+        }
+
+        return { movie, score };
+      })
+      .filter((item) => item.score > 0) // Only include movies with a positive score
+      .sort((a, b) => b.score - a.score) // Sort by score in descending order
+      .slice(0, 10); // Limit to top 10 recommendations
+
+    // Return recommendations
+    return res.status(200).json({
+      message: "Personalized recommendations fetched successfully",
+      recommendations: recommendations.map((item) => item.movie), // Return only movie objects
+    });
+  } catch (error) {
+    console.error("Error fetching personalized recommendations:", error);
+    return res.status(500).json({
+      message: "Internal server error",
+      error: error.message,
+    });
   }
 };

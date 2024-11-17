@@ -345,3 +345,54 @@ exports.likeReview = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+exports.getSimilarTitles = async (req, res) => {
+  try {
+    const { movieId } = req.params;
+
+    // Validate movieId
+    if (!mongoose.Types.ObjectId.isValid(movieId)) {
+      return res.status(400).json({ message: "Invalid movie ID" });
+    }
+
+    // Find the current movie
+    const currentMovie = await Movie.findById(movieId);
+    if (!currentMovie) {
+      return res.status(404).json({ message: "Movie not found" });
+    }
+
+    const imdbThreshold = 0.4; // Threshold for IMDb rating similarity
+
+    // Find similar movies based on genre, director, or IMDb rating
+    const similarMovies = await Movie.find({
+      _id: { $ne: currentMovie._id }, // Exclude the current movie
+      $or: [
+        { genre: { $in: currentMovie.genre } }, // Match any genre
+        { director: currentMovie.director }, // Match the same director
+        {
+          imdbRating: {
+            $gte: currentMovie.imdbRating - imdbThreshold,
+            $lte: currentMovie.imdbRating + imdbThreshold,
+          }, // IMDb rating within ±0.4
+        },
+      ],
+    }).select("_id"); // Only fetch the `_id` field for efficiency
+
+    // Update the similarTitles field of the current movie
+    currentMovie.similarTitles = similarMovies.map((movie) => movie._id);
+    await currentMovie.save();
+
+    // Populate and return the updated similarTitles field
+    const populatedMovie = await currentMovie.populate(
+      "similarTitles",
+      "title"
+    );
+    res.status(200).json({
+      message: "Similar titles fetched successfully",
+      similarTitles: populatedMovie.similarTitles,
+    });
+  } catch (error) {
+    console.error("Error fetching similar titles:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};

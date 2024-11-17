@@ -120,6 +120,12 @@ const MovieSchema = new Schema({
       type: String, // Keywords for advanced filtering (e.g., "based on a true story", "superhero")
     },
   ],
+  similarTitles: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Movie",
+    },
+  ],
 });
 
 const Movie = mongoose.model("Movie", MovieSchema);

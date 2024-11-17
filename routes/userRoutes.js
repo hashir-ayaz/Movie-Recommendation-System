@@ -29,4 +29,10 @@ router.post(
   userController.addToWishlist
 );
 
+router.get(
+  "/:userId/personalised-recommendations",
+  protect,
+  userController.getPersonalisedRecommendations
+);
+
 module.exports = router;

@@ -7,6 +7,7 @@ const { protect, adminProtect } = require("../middleware/authMiddleware");
 router.get("/search-filter", movieController.searchAndFilterMovies); // Search and filter movies
 router.get("/top-of-month", movieController.getTopMoviesOfTheMonth); // Top movies of the month
 router.get("/top-by-genre", movieController.getTopMoviesByGenre); // Top 10 movies by genre
+router.get("/:movieId/similar-titles", movieController.getSimilarTitles); // Top 10 movies
 
 // Dynamic Routes for Public Access
 router.get("/:id/reviews", movieController.getReviews); // Get reviews for a movie
