@@ -101,24 +101,20 @@ exports.getMovie = async (req, res) => {
 
 exports.addReview = async (req, res) => {
   console.log("addReview");
-  const { user, movie, ratingValue, reviewText } = req.body;
+  const userId = req.user._id; // Extract user ID from req.user populated by middleware
+  const { movieId } = req.params; // Extract movie ID from request parameters
+  const { ratingValue, reviewText } = req.body; // Extract review data from request body
 
   try {
-    // Check if user exists
-    const userFound = await User.findById(user);
-    if (!userFound) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
     // Check if movie exists
-    const movieFound = await Movie.findById(movie);
+    const movieFound = await Movie.findById(movieId);
     if (!movieFound) {
       return res.status(404).json({ message: "Movie not found" });
     }
 
     // Create a new review instance
     const review = new Review({
-      user: userFound._id,
+      user: userId,
       movie: movieFound._id,
       ratingValue,
       reviewText,
@@ -133,7 +129,7 @@ exports.addReview = async (req, res) => {
     // Recalculate the average rating
     const totalRatings = movieFound.reviews.length + 1; // Include the current review
     const newAverageRating =
-      (movieFound.averageRating * movieFound.reviews.length + ratingValue) /
+      (movieFound.averageRating * (totalRatings - 1) + ratingValue) /
       totalRatings;
 
     movieFound.averageRating = newAverageRating;
@@ -149,6 +145,13 @@ exports.addReview = async (req, res) => {
     });
   } catch (error) {
     console.error("Error adding review:", error);
+
+    // Return appropriate error response
+    if (error.name === "ValidationError") {
+      return res
+        .status(400)
+        .json({ message: "Validation error", error: error.message });
+    }
     return res
       .status(500)
       .json({ message: "Internal server error", error: error.message });
@@ -256,5 +259,16 @@ exports.getTopMoviesByGenre = async (req, res) => {
   } catch (error) {
     console.error("Error fetching top movies by genre:", error);
     res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+exports.getReviews = async (req, res) => {
+  const { movieId } = req.params;
+
+  try {
+    const movie = await Movie.findById(movieId).populate("reviews");
+    return res.status(200).json({ reviews: movie.reviews });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
   }
 };

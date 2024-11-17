@@ -124,7 +124,10 @@ exports.updateArticle = async (req, res) => {
     if (!article) return res.status(404).json({ message: "Article not found" });
 
     // Ensure only the author or admin can update
-    if (String(article.author) !== String(req.user._id) && !req.user.isAdmin) {
+    if (
+      String(article.author) !== String(req.user._id) &&
+      !req.user.role === "admin"
+    ) {
       return res
         .status(403)
         .json({ message: "Unauthorized to update this article" });

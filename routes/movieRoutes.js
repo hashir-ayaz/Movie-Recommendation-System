@@ -19,6 +19,8 @@ router.get("/:id", movieController.getMovie); // Get details of a single movie
 router.get("/:id/reviews", movieController.getReviews); // Get reviews for a movie
 
 // Review Routes
-router.post("/review", protect, movieController.addReview); // Add a movie review
+router
+  .post("/:movieId/review", protect, movieController.addReview) // Add a movie review
+  .get("/:movieId/review", movieController.getReviews); // Get reviews for a movie
 
 module.exports = router;
