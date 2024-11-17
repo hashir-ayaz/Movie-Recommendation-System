@@ -179,13 +179,30 @@ exports.addReview = async (req, res) => {
 };
 
 exports.getReviews = async (req, res) => {
+  console.log("getReviews");
   const { id } = req.params;
 
   try {
+    // check if id is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: "Invalid movie ID" });
+    }
+
+    // Attempt to find the movie by its ID
     const movie = await Movie.findById(id).populate("reviews");
-    return res.status(200).json({ reviews: movie.reviews });
+
+    // If the movie does not exist, return a 404 response
+    if (!movie) {
+      return res.status(404).json({ message: "Movie not found" });
+    }
+
+    console.log("the movie found is ", movie);
+
+    // Return the reviews if the movie is found
+    res.status(200).json({ reviews: movie.reviews });
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    console.error("Error fetching reviews:", error);
+    res.status(500).json({ message: "Internal server error" });
   }
 };
 
@@ -282,13 +299,49 @@ exports.getTopMoviesByGenre = async (req, res) => {
   }
 };
 
-exports.getReviews = async (req, res) => {
-  const { movieId } = req.params;
+// exports.getReviews = async (req, res) => {
+//   const { movieId } = req.params;
+
+//   try {
+//     const movie = await Movie.findById(movieId).populate("reviews");
+//     return res.status(200).json({ reviews: movie.reviews });
+//   } catch (error) {
+//     return res.status(500).json({ message: error.message });
+//   }
+// };
+
+exports.likeReview = async (req, res) => {
+  const { reviewId } = req.params;
+  const userId = req.user._id;
 
   try {
-    const movie = await Movie.findById(movieId).populate("reviews");
-    return res.status(200).json({ reviews: movie.reviews });
+    // Check if reviewId is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(reviewId)) {
+      return res.status(400).json({ message: "Invalid review ID" });
+    }
+
+    // Check if review exists
+    const review = await Review.findById(reviewId);
+    if (!review) {
+      return res.status(404).json({ message: "Review not found" });
+    }
+
+    // check if user already liked this review
+    if (review.likedBy.includes(userId)) {
+      return res.status(400).json({ message: "Review already liked" });
+    }
+    // Add the user to the likedBy array
+    review.likedBy.push(userId);
+
+    // Increment the likes count
+    review.likeCount += 1;
+
+    // Save the updated review
+    await review.save();
+
+    return res.status(200).json({ message: "Review liked successfully" });
   } catch (error) {
+    console.error("Error liking review:", error);
     return res.status(500).json({ message: error.message });
   }
 };

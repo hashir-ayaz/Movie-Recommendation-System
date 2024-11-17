@@ -26,6 +26,14 @@ const ReviewSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  likedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+  likeCount: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const Review = mongoose.model("Review", ReviewSchema);
