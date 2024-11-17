@@ -1,0 +1,520 @@
+[
+  {
+    "title": "Inception",
+    "genre": ["Sci-Fi", "Thriller"],
+    "director": "67389e307619d5d099a91318",
+    "cast": ["6739c4ce7aa38b79c79b55cd", "6739c4ce7aa38b79c79b55eb"],
+    "imdbRating": 8.8,
+    "releaseDate": "2010-07-16",
+    "runtime": 148,
+    "synopsis": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
+    "averageRating": 9.0,
+    "coverPhoto": "https://example.com/inception.jpg",
+    "trivia": ["The hallway fight scene was done without CGI."],
+    "goofs": ["A kick in zero-gravity has the wrong physics."],
+    "soundtrack": "Hans Zimmer - Time",
+    "ageRating": 13,
+    "parentalGuidance": "Mild violence and language",
+    "boxOffice": {
+      "openingWeekend": 62700000,
+      "totalDomestic": 292576195,
+      "totalInternational": 534966456,
+      "totalWorldwide": 827542651
+    },
+    "awards": [
+      {
+        "name": "Academy Award",
+        "category": "Best Cinematography",
+        "year": 2011,
+        "won": true
+      }
+    ],
+    "countryOfOrigin": "United States",
+    "language": "English",
+    "keywords": ["dream", "heist", "mind-bending"]
+  },
+  {
+    "title": "Titanic",
+    "genre": ["Drama", "Romance"],
+    "director": "6739c4ce7aa38b79c79b55eb",
+    "cast": ["6739c4ce7aa38b79c79b55cd", "6739c4ce7aa38b79c79b55d6"],
+    "imdbRating": 7.9,
+    "releaseDate": "1997-12-19",
+    "runtime": 195,
+    "synopsis": "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
+    "averageRating": 8.0,
+    "coverPhoto": "https://example.com/titanic.jpg",
+    "trivia": ["The famous necklace is fictional."],
+    "goofs": [
+      "The sky constellations shown are incorrect for the time period."
+    ],
+    "soundtrack": "Celine Dion - My Heart Will Go On",
+    "ageRating": 13,
+    "parentalGuidance": "Nudity and intense sequences",
+    "boxOffice": {
+      "openingWeekend": 28914206,
+      "totalDomestic": 659363944,
+      "totalInternational": 1527960000,
+      "totalWorldwide": 2187363944
+    },
+    "awards": [
+      {
+        "name": "Academy Award",
+        "category": "Best Picture",
+        "year": 1998,
+        "won": true
+      }
+    ],
+    "countryOfOrigin": "United States",
+    "language": "English",
+    "keywords": ["shipwreck", "romance", "tragedy"]
+  },
+  {
+    "title": "The Shawshank Redemption",
+    "genre": ["Drama"],
+    "director": "6739c4ce7aa38b79c79b55fa",
+    "cast": ["6739c4ce7aa38b79c79b55fa", "6739c4ce7aa38b79c79b5600"],
+    "imdbRating": 9.3,
+    "releaseDate": "1994-09-23",
+    "runtime": 142,
+    "synopsis": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+    "averageRating": 9.5,
+    "coverPhoto": "https://example.com/shawshank.jpg",
+    "trivia": ["Stephen King's favorite adaptation of his work."],
+    "goofs": ["The chessboard alternates incorrectly in one scene."],
+    "soundtrack": "Thomas Newman - Brooks Was Here",
+    "ageRating": 18,
+    "parentalGuidance": "Violence and language",
+    "boxOffice": {
+      "openingWeekend": 727327,
+      "totalDomestic": 28341469,
+      "totalInternational": 58500000,
+      "totalWorldwide": 86841469
+    },
+    "awards": [
+      {
+        "name": "Academy Award",
+        "category": "Best Picture",
+        "year": 1995,
+        "won": false
+      }
+    ],
+    "countryOfOrigin": "United States",
+    "language": "English",
+    "keywords": ["prison", "friendship", "freedom"]
+  },
+  {
+    "title": "La La Land",
+    "genre": ["Romance", "Musical"],
+    "director": "6739c4ce7aa38b79c79b5611",
+    "cast": ["6739c4ce7aa38b79c79b560e", "6739c4ce7aa38b79c79b5610"],
+    "imdbRating": 8.0,
+    "releaseDate": "2016-12-09",
+    "runtime": 128,
+    "synopsis": "While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.",
+    "averageRating": 8.3,
+    "coverPhoto": "https://example.com/lalaland.jpg",
+    "trivia": ["Filmed entirely in Los Angeles."],
+    "goofs": ["The jazz sequence has a slight error in timing."],
+    "soundtrack": "Justin Hurwitz - City of Stars",
+    "ageRating": 13,
+    "parentalGuidance": "Mild language and thematic elements",
+    "boxOffice": {
+      "openingWeekend": 881104,
+      "totalDomestic": 151101803,
+      "totalInternational": 295000000,
+      "totalWorldwide": 446101803
+    },
+    "awards": [
+      {
+        "name": "Academy Award",
+        "category": "Best Actress",
+        "year": 2017,
+        "won": true
+      }
+    ],
+    "countryOfOrigin": "United States",
+    "language": "English",
+    "keywords": ["dreams", "love", "music"]
+  },
+  {
+    "title": "Pulp Fiction",
+    "genre": ["Crime", "Drama"],
+    "director": "6739c4ce7aa38b79c79b55e5",
+    "cast": ["6739c4ce7aa38b79c79b55e5", "6739c4ce7aa38b79c79b55eb"],
+    "imdbRating": 8.9,
+    "releaseDate": "1994-10-14",
+    "runtime": 154,
+    "synopsis": "The lives of two mob hitmen, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+    "averageRating": 9.0,
+    "coverPhoto": "https://example.com/pulpfiction.jpg",
+    "trivia": ["The movie was shot in sequence."],
+    "goofs": ["Bullet holes are visible before shots are fired."],
+    "soundtrack": "Misirlou - Dick Dale",
+    "ageRating": 18,
+    "parentalGuidance": "Strong violence and language",
+    "boxOffice": {
+      "openingWeekend": 9280000,
+      "totalDomestic": 107928762,
+      "totalInternational": 120000000,
+      "totalWorldwide": 227928762
+    },
+    "awards": [
+      {
+        "name": "Academy Award",
+        "category": "Best Original Screenplay",
+        "year": 1995,
+        "won": true
+      }
+    ],
+    "countryOfOrigin": "United States",
+    "language": "English",
+    "keywords": ["nonlinear", "violence", "crime"]
+  },
+  {
+    "title": "The Dark Knight",
+    "genre": ["Action", "Crime", "Drama"],
+    "director": "67389e307619d5d099a91318",
+    "cast": ["6739c4ce7aa38b79c79b55f4", "6739c4ce7aa38b79c79b5600"],
+    "imdbRating": 9.0,
+    "releaseDate": "2008-07-18",
+    "runtime": 152,
+    "synopsis": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham. Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+    "averageRating": 9.2,
+    "coverPhoto": "https://example.com/thedarkknight.jpg",
+    "trivia": [
+      "Heath Ledger posthumously won an Academy Award for his role as Joker."
+    ],
+    "goofs": ["The Joker's scars change shape slightly throughout the movie."],
+    "soundtrack": "Hans Zimmer - Why So Serious?",
+    "ageRating": 13,
+    "parentalGuidance": "Intense sequences of violence and menace",
+    "boxOffice": {
+      "openingWeekend": 158411483,
+      "totalDomestic": 535234033,
+      "totalInternational": 469700000,
+      "totalWorldwide": 1004934033
+    },
+    "awards": [
+      {
+        "name": "Academy Award",
+        "category": "Best Supporting Actor",
+        "year": 2009,
+        "won": true
+      }
+    ],
+    "countryOfOrigin": "United States",
+    "language": "English",
+    "keywords": ["superhero", "vigilante", "chaos"]
+  },
+  {
+    "title": "Jurassic Park",
+    "genre": ["Adventure", "Sci-Fi"],
+    "director": "6739c4ce7aa38b79c79b55d3",
+    "cast": ["6739c4ce7aa38b79c79b5600", "6739c4ce7aa38b79c79b55cd"],
+    "imdbRating": 8.1,
+    "releaseDate": "1993-06-11",
+    "runtime": 127,
+    "synopsis": "A pragmatic paleontologist visiting an almost complete theme park is tasked with protecting a couple of kids after a power failure causes the park's cloned dinosaurs to run loose.",
+    "averageRating": 8.3,
+    "coverPhoto": "https://example.com/jurassicpark.jpg",
+    "trivia": [
+      "The T-Rex roar was a mix of tiger, alligator, and baby elephant sounds."
+    ],
+    "goofs": ["The T-Rex paddock depth changes in different scenes."],
+    "soundtrack": "John Williams - Jurassic Park Theme",
+    "ageRating": 13,
+    "parentalGuidance": "Mild violence and intense sequences",
+    "boxOffice": {
+      "openingWeekend": 47026000,
+      "totalDomestic": 357067947,
+      "totalInternational": 626900000,
+      "totalWorldwide": 983967947
+    },
+    "awards": [
+      {
+        "name": "Academy Award",
+        "category": "Best Visual Effects",
+        "year": 1994,
+        "won": true
+      }
+    ],
+    "countryOfOrigin": "United States",
+    "language": "English",
+    "keywords": ["dinosaurs", "theme park", "survival"]
+  },
+  {
+    "title": "Schindler's List",
+    "genre": ["Biography", "Drama", "History"],
+    "director": "6739c4ce7aa38b79c79b55d3",
+    "cast": ["6739c4ce7aa38b79c79b55dc", "6739c4ce7aa38b79c79b5600"],
+    "imdbRating": 9.0,
+    "releaseDate": "1993-12-15",
+    "runtime": 195,
+    "synopsis": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+    "averageRating": 9.2,
+    "coverPhoto": "https://example.com/schindlerslist.jpg",
+    "trivia": ["Steven Spielberg considered it his most personal film."],
+    "goofs": [
+      "A wristwatch shown in one scene wasn't invented until years later."
+    ],
+    "soundtrack": "John Williams - Theme from Schindler's List",
+    "ageRating": 18,
+    "parentalGuidance": "Graphic violence and disturbing images",
+    "boxOffice": {
+      "openingWeekend": 656636,
+      "totalDomestic": 96898297,
+      "totalInternational": 225000000,
+      "totalWorldwide": 321898297
+    },
+    "awards": [
+      {
+        "name": "Academy Award",
+        "category": "Best Picture",
+        "year": 1994,
+        "won": true
+      }
+    ],
+    "countryOfOrigin": "United States",
+    "language": "English",
+    "keywords": ["holocaust", "rescue", "nazi germany"]
+  },
+  {
+    "title": "Black Swan",
+    "genre": ["Drama", "Thriller"],
+    "director": "6739c4ce7aa38b79c79b55df",
+    "cast": ["6739c4ce7aa38b79c79b55e2"],
+    "imdbRating": 8.0,
+    "releaseDate": "2010-12-03",
+    "runtime": 108,
+    "synopsis": "A committed dancer wins the lead role in a production of Tchaikovsky's 'Swan Lake' only to find herself struggling to maintain her sanity.",
+    "averageRating": 8.3,
+    "coverPhoto": "https://example.com/blackswan.jpg",
+    "trivia": ["Natalie Portman trained for a year to play the role."],
+    "goofs": ["The piano player has inconsistent sheet music."],
+    "soundtrack": "Clint Mansell - Swan Lake Theme",
+    "ageRating": 18,
+    "parentalGuidance": "Intense psychological themes and some violence",
+    "boxOffice": {
+      "openingWeekend": 1812418,
+      "totalDomestic": 106954678,
+      "totalInternational": 222457581,
+      "totalWorldwide": 329412259
+    },
+    "awards": [
+      {
+        "name": "Academy Award",
+        "category": "Best Actress",
+        "year": 2011,
+        "won": true
+      }
+    ],
+    "countryOfOrigin": "United States",
+    "language": "English",
+    "keywords": ["ballet", "obsession", "perfection"]
+  },
+  {
+    "title": "Django Unchained",
+    "genre": ["Drama", "Western"],
+    "director": "6739c4ce7aa38b79c79b55e5",
+    "cast": ["6739c4ce7aa38b79c79b55dc", "6739c4ce7aa38b79c79b5600"],
+    "imdbRating": 8.4,
+    "releaseDate": "2012-12-25",
+    "runtime": 165,
+    "synopsis": "With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.",
+    "averageRating": 8.6,
+    "coverPhoto": "https://example.com/djangounchained.jpg",
+    "trivia": ["Leonardo DiCaprio accidentally cut his hand in one scene."],
+    "goofs": ["A dynamite stick is shown years before its invention."],
+    "soundtrack": "Luis Bacalov - Django",
+    "ageRating": 18,
+    "parentalGuidance": "Strong graphic violence and language",
+    "boxOffice": {
+      "openingWeekend": 30122000,
+      "totalDomestic": 162805434,
+      "totalInternational": 262000000,
+      "totalWorldwide": 424805434
+    },
+    "awards": [
+      {
+        "name": "Academy Award",
+        "category": "Best Original Screenplay",
+        "year": 2013,
+        "won": true
+      }
+    ],
+    "countryOfOrigin": "United States",
+    "language": "English",
+    "keywords": ["revenge", "slavery", "western"]
+  },
+  {
+    "title": "The Hurt Locker",
+    "genre": ["Drama", "War"],
+    "director": "6739c4ce7aa38b79c79b55f1",
+    "cast": ["6739c4ce7aa38b79c79b55cd"],
+    "imdbRating": 7.5,
+    "releaseDate": "2009-06-26",
+    "runtime": 131,
+    "synopsis": "During the Iraq War, a sergeant recently assigned to an army bomb squad is put at odds with his squadmates due to his maverick way of handling his work.",
+    "averageRating": 8.1,
+    "coverPhoto": "https://example.com/thehurtlocker.jpg",
+    "trivia": ["Filmed entirely in Jordan."],
+    "goofs": ["A soldier uses the wrong type of detonator."],
+    "soundtrack": "Marco Beltrami - The Hurt Locker Theme",
+    "ageRating": 18,
+    "parentalGuidance": "Intense war violence",
+    "boxOffice": {
+      "openingWeekend": 145352,
+      "totalDomestic": 17017157,
+      "totalInternational": 39947472,
+      "totalWorldwide": 56964629
+    },
+    "awards": [
+      {
+        "name": "Academy Award",
+        "category": "Best Picture",
+        "year": 2010,
+        "won": true
+      }
+    ],
+    "countryOfOrigin": "United States",
+    "language": "English",
+    "keywords": ["war", "bomb squad", "psychological tension"]
+  },
+  {
+    "title": "Gravity",
+    "genre": ["Sci-Fi", "Thriller"],
+    "director": "6739c4ce7aa38b79c79b5611",
+    "cast": ["6739c4ce7aa38b79c79b5600"],
+    "imdbRating": 7.7,
+    "releaseDate": "2013-10-04",
+    "runtime": 91,
+    "synopsis": "Two astronauts work together to survive after an accident leaves them stranded in space.",
+    "averageRating": 8.2,
+    "coverPhoto": "https://example.com/gravity.jpg",
+    "trivia": ["Sandra Bullock spent hours on wires for zero-gravity scenes."],
+    "goofs": ["Space debris is unrealistically fast."],
+    "soundtrack": "Steven Price - Gravity",
+    "ageRating": 13,
+    "parentalGuidance": "Intense peril sequences",
+    "boxOffice": {
+      "openingWeekend": 55784755,
+      "totalDomestic": 274092705,
+      "totalInternational": 449100000,
+      "totalWorldwide": 723192705
+    },
+    "awards": [
+      {
+        "name": "Academy Award",
+        "category": "Best Director",
+        "year": 2014,
+        "won": true
+      }
+    ],
+    "countryOfOrigin": "United States",
+    "language": "English",
+    "keywords": ["space", "survival", "astronaut"]
+  },
+  {
+    "title": "Lady Bird",
+    "genre": ["Drama", "Comedy"],
+    "director": "6739c4ce7aa38b79c79b55f7",
+    "cast": ["6739c4ce7aa38b79c79b55e2"],
+    "imdbRating": 7.9,
+    "releaseDate": "2017-09-08",
+    "runtime": 94,
+    "synopsis": "In 2002, an artistically inclined seventeen-year-old girl comes of age in Sacramento, California.",
+    "averageRating": 8.0,
+    "coverPhoto": "https://example.com/ladybird.jpg",
+    "trivia": ["This was Greta Gerwig's solo directorial debut."],
+    "goofs": ["A poster shown didn't exist in 2002."],
+    "soundtrack": "Jon Brion - Lady Bird Theme",
+    "ageRating": 13,
+    "parentalGuidance": "Strong language and brief nudity",
+    "boxOffice": {
+      "openingWeekend": 364437,
+      "totalDomestic": 48950604,
+      "totalInternational": 28400000,
+      "totalWorldwide": 77350604
+    },
+    "awards": [
+      {
+        "name": "Golden Globe",
+        "category": "Best Picture",
+        "year": 2018,
+        "won": true
+      }
+    ],
+    "countryOfOrigin": "United States",
+    "language": "English",
+    "keywords": ["coming of age", "mother-daughter", "high school"]
+  },
+  {
+    "title": "Lost in Translation",
+    "genre": ["Drama", "Romance"],
+    "director": "6739c4ce7aa38b79c79b55fd",
+    "cast": ["6739c4ce7aa38b79c79b55dc"],
+    "imdbRating": 7.8,
+    "releaseDate": "2003-09-12",
+    "runtime": 102,
+    "synopsis": "A faded movie star and a neglected young woman form an unlikely bond after crossing paths in Tokyo.",
+    "averageRating": 8.1,
+    "coverPhoto": "https://example.com/lostintranslation.jpg",
+    "trivia": ["The film was shot in 27 days."],
+    "goofs": ["A boom mic appears in one scene."],
+    "soundtrack": "Kevin Shields - Lost in Translation Theme",
+    "ageRating": 13,
+    "parentalGuidance": "Mild language and thematic elements",
+    "boxOffice": {
+      "openingWeekend": 925087,
+      "totalDomestic": 44851392,
+      "totalInternational": 119723856,
+      "totalWorldwide": 164575248
+    },
+    "awards": [
+      {
+        "name": "Academy Award",
+        "category": "Best Original Screenplay",
+        "year": 2004,
+        "won": true
+      }
+    ],
+    "countryOfOrigin": "United States",
+    "language": "English",
+    "keywords": ["tokyo", "loneliness", "unexpected friendship"]
+  },
+  {
+    "title": "12 Years a Slave",
+    "genre": ["Biography", "Drama", "History"],
+    "director": "6739c4ce7aa38b79c79b5601",
+    "cast": ["6739c4ce7aa38b79c79b55dc"],
+    "imdbRating": 8.1,
+    "releaseDate": "2013-10-18",
+    "runtime": 134,
+    "synopsis": "In the antebellum United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery.",
+    "averageRating": 8.5,
+    "coverPhoto": "https://example.com/12yearsaslave.jpg",
+    "trivia": ["The screenplay was based on Solomon Northup's memoir."],
+    "goofs": ["A modern bridge appears in the background."],
+    "soundtrack": "Hans Zimmer - Solomon",
+    "ageRating": 18,
+    "parentalGuidance": "Disturbing violence and strong language",
+    "boxOffice": {
+      "openingWeekend": 923715,
+      "totalDomestic": 56672993,
+      "totalInternational": 131000000,
+      "totalWorldwide": 187672993
+    },
+    "awards": [
+      {
+        "name": "Academy Award",
+        "category": "Best Picture",
+        "year": 2014,
+        "won": true
+      }
+    ],
+    "countryOfOrigin": "United States",
+    "language": "English",
+    "keywords": ["slavery", "freedom", "human rights"]
+  }
+]

@@ -1,0 +1,294 @@
+[
+  {
+    "name": "Leonardo DiCaprio",
+    "biography": "Leonardo Wilhelm DiCaprio is an American actor and producer known for his work in biopics and period films. He has received numerous accolades, including an Academy Award.",
+    "awards": [
+      { "awardName": "Academy Award for Best Actor", "year": 2016 },
+      { "awardName": "Golden Globe Award for Best Actor", "year": 2016 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Leonardo_DiCaprio_2014.jpg/800px-Leonardo_DiCaprio_2014.jpg"
+    ]
+  },
+  {
+    "name": "Meryl Streep",
+    "biography": "Meryl Streep is an American actress widely regarded as one of the greatest actresses of her generation. She is known for her versatility and accent adaptation.",
+    "awards": [
+      { "awardName": "Academy Award for Best Actress", "year": 1980 },
+      { "awardName": "Golden Globe Award for Best Actress", "year": 2011 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Meryl_Streep_Cannes_2019.jpg/800px-Meryl_Streep_Cannes_2019.jpg"
+    ]
+  },
+  {
+    "name": "Steven Spielberg",
+    "biography": "Steven Spielberg is an American filmmaker and one of the founding pioneers of the New Hollywood era. He is known for blockbuster films such as 'Jaws', 'E.T.', and 'Jurassic Park'.",
+    "awards": [
+      { "awardName": "Academy Award for Best Director", "year": 1994 },
+      { "awardName": "Golden Globe Cecil B. DeMille Award", "year": 2006 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Steven_Spielberg_by_Gage_Skidmore_2.jpg/800px-Steven_Spielberg_by_Gage_Skidmore_2.jpg"
+    ]
+  },
+  {
+    "name": "Cate Blanchett",
+    "biography": "Cate Blanchett is an Australian actress and theatre director. She is known for her diverse roles in both independent and blockbuster films, earning multiple awards.",
+    "awards": [
+      { "awardName": "Academy Award for Best Actress", "year": 2014 },
+      { "awardName": "Golden Globe Award for Best Actress", "year": 2008 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Cate_Blanchett_Cannes_2013.jpg/800px-Cate_Blanchett_Cannes_2013.jpg"
+    ]
+  },
+  {
+    "name": "Christopher Nolan",
+    "biography": "Christopher Nolan is a British-American film director, screenwriter, and producer known for his complex storytelling and innovative filmmaking techniques in movies like 'Inception' and 'The Dark Knight'.",
+    "awards": [
+      { "awardName": "BAFTA Award for Best Direction", "year": 2011 },
+      { "awardName": "Saturn Award for Best Director", "year": 2010 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Christopher_Nolan_by_Gage_Skidmore.jpg/800px-Christopher_Nolan_by_Gage_Skidmore.jpg"
+    ]
+  },
+  {
+    "name": "Viola Davis",
+    "biography": "Viola Davis is an American actress and producer. She is the first Black actress to achieve the 'Triple Crown of Acting'—winning an Academy Award, an Emmy Award, and a Tony Award.",
+    "awards": [
+      {
+        "awardName": "Academy Award for Best Supporting Actress",
+        "year": 2017
+      },
+      { "awardName": "Emmy Award for Outstanding Lead Actress", "year": 2016 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Viola_Davis_2013.jpg/800px-Viola_Davis_2013.jpg"
+    ]
+  },
+  {
+    "name": "Martin Scorsese",
+    "biography": "Martin Scorsese is an American filmmaker known for his gritty, meticulous, and artistically ambitious films such as 'Goodfellas', 'Taxi Driver', and 'The Irishman'.",
+    "awards": [
+      { "awardName": "Academy Award for Best Director", "year": 2007 },
+      { "awardName": "BAFTA Award for Best Film", "year": 2011 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Martin_Scorsese_at_TIFF_2017.jpg/800px-Martin_Scorsese_at_TIFF_2017.jpg"
+    ]
+  },
+  {
+    "name": "Natalie Portman",
+    "biography": "Natalie Portman is an Israeli-American actress, director, and producer known for her roles in 'Black Swan', 'V for Vendetta', and the 'Star Wars' prequel trilogy.",
+    "awards": [
+      { "awardName": "Academy Award for Best Actress", "year": 2011 },
+      { "awardName": "BAFTA Award for Best Actress", "year": 2011 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Natalie_Portman_at_TIFF_2012.jpg/800px-Natalie_Portman_at_TIFF_2012.jpg"
+    ]
+  },
+  {
+    "name": "Quentin Tarantino",
+    "biography": "Quentin Tarantino is an American filmmaker and screenwriter known for his distinct storytelling style, nonlinear narratives, and extensive use of violence and dialogue in films like 'Pulp Fiction' and 'Django Unchained'.",
+    "awards": [
+      {
+        "awardName": "Academy Award for Best Original Screenplay",
+        "year": 1995
+      },
+      { "awardName": "Golden Globe Award for Best Screenplay", "year": 2013 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Quentin_Tarantino_at_2014_TIFF.jpg/800px-Quentin_Tarantino_at_2014_TIFF.jpg"
+    ]
+  },
+  {
+    "name": "Jennifer Lawrence",
+    "biography": "Jennifer Lawrence is an American actress known for her roles in 'Silver Linings Playbook', 'The Hunger Games' series, and 'American Hustle'. She has received critical acclaim for her performances and won an Academy Award.",
+    "awards": [
+      { "awardName": "Academy Award for Best Actress", "year": 2013 },
+      { "awardName": "BAFTA Award for Best Actress", "year": 2013 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Emma_Stone_in_October_2014.jpg/800px-Emma_Stone_in_October_2014.jpg"
+    ]
+  },
+  {
+    "name": "James Cameron",
+    "biography": "James Cameron is a Canadian filmmaker known for his innovative use of special effects and deep-sea exploration. He directed blockbuster films like 'Titanic', 'Avatar', and 'The Terminator'.",
+    "awards": [
+      { "awardName": "Academy Award for Best Picture", "year": 1998 },
+      { "awardName": "BAFTA Award for Best Film", "year": 1998 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/James_Cameron_by_Gage_Skidmore_2.jpg/800px-James_Cameron_by_Gage_Skidmore_2.jpg"
+    ]
+  },
+  {
+    "name": "Tom Hanks",
+    "biography": "Tom Hanks is an American actor and filmmaker known for his roles in 'Forrest Gump', 'Saving Private Ryan', and 'Cast Away'. He is celebrated for his versatility and everyman persona.",
+    "awards": [
+      { "awardName": "Academy Award for Best Actor", "year": 1994 },
+      { "awardName": "Golden Globe Award for Best Actor", "year": 1995 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Tom_Hanks_at_2014_Mayfair_Spring_Gala.jpg/800px-Tom_Hanks_at_2014_Mayfair_Spring_Gala.jpg"
+    ]
+  },
+  {
+    "name": "Kathryn Bigelow",
+    "biography": "Kathryn Bigelow is an American filmmaker known for her intense action films and pioneering work as a female director in a male-dominated industry. Notable works include 'The Hurt Locker' and 'Zero Dark Thirty'.",
+    "awards": [
+      { "awardName": "Academy Award for Best Director", "year": 2010 },
+      { "awardName": "BAFTA Award for Best Direction", "year": 2010 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Kathryn_Bigelow_May_2010.jpg/800px-Kathryn_Bigelow_May_2010.jpg"
+    ]
+  },
+  {
+    "name": "Denzel Washington",
+    "biography": "Denzel Washington is an American actor, director, and producer known for his powerful performances in films like 'Training Day', 'Malcolm X', and 'Glory'.",
+    "awards": [
+      { "awardName": "Academy Award for Best Supporting Actor", "year": 2002 },
+      { "awardName": "Golden Globe Award for Best Actor", "year": 2002 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Denzel_Washington_at_2014_Film_Day.jpg/800px-Denzel_Washington_at_2014_Film_Day.jpg"
+    ]
+  },
+  {
+    "name": "Greta Gerwig",
+    "biography": "Greta Gerwig is an American actress, writer, and director known for her work in independent films and her acclaimed directorial debut, 'Lady Bird'.",
+    "awards": [
+      { "awardName": "Academy Award for Best Director", "year": 2021 },
+      { "awardName": "Golden Globe Award for Best Director", "year": 2021 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Greta_Gerwig.jpg/800px-Greta_Gerwig.jpg"
+    ]
+  },
+  {
+    "name": "Morgan Freeman",
+    "biography": "Morgan Freeman is an American actor and narrator known for his deep voice and authoritative presence in films like 'The Shawshank Redemption', 'Million Dollar Baby', and 'Bruce Almighty'.",
+    "awards": [
+      { "awardName": "Academy Award for Best Supporting Actor", "year": 2005 },
+      { "awardName": "Golden Globe Award for Best Actor", "year": 2005 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Morgan_Freeman_at_2016_Sundance_Film_Festival.jpg/800px-Morgan_Freeman_at_2016_Sundance_Film_Festival.jpg"
+    ]
+  },
+  {
+    "name": "Sofia Coppola",
+    "biography": "Sofia Coppola is an American filmmaker and actress known for her distinctive visual style and exploration of themes like isolation and identity in films such as 'Lost in Translation' and 'The Virgin Suicides'.",
+    "awards": [
+      {
+        "awardName": "Academy Award for Best Original Screenplay",
+        "year": 2004
+      },
+      { "awardName": "Golden Globe Award for Best Director", "year": 2004 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Sofia_Coppola.jpg/800px-Sofia_Coppola.jpg"
+    ]
+  },
+  {
+    "name": "Samuel L. Jackson",
+    "biography": "Samuel L. Jackson is an American actor and producer known for his dynamic performances and prolific career in films like 'Pulp Fiction', 'Avengers', and 'Django Unchained'.",
+    "awards": [
+      {
+        "awardName": "Primetime Emmy Award for Outstanding Voice-Over Performance",
+        "year": 2013
+      }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Samuel_L._Jackson_by_Gage_Skidmore_2.jpg/800px-Samuel_L._Jackson_by_Gage_Skidmore_2.jpg"
+    ]
+  },
+  {
+    "name": "Ava DuVernay",
+    "biography": "Ava DuVernay is an American filmmaker and distributor known for her work on films like 'Selma', '13th', and 'A Wrinkle in Time'. She is a prominent voice in advocating for diversity in Hollywood.",
+    "awards": [
+      {
+        "awardName": "NAACP Image Award for Outstanding Directing",
+        "year": 2015
+      },
+      { "awardName": "BAFTA Award for Best Documentary", "year": 2017 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ava_DuVernay.jpg/800px-Ava_DuVernay.jpg"
+    ]
+  },
+  {
+    "name": "Robert Downey Jr.",
+    "biography": "Robert Downey Jr. is an American actor and producer known for his charismatic performances, particularly as Tony Stark/Iron Man in the Marvel Cinematic Universe and his role in 'Sherlock Holmes'.",
+    "awards": [
+      { "awardName": "Golden Globe Award for Best Actor", "year": 2009 },
+      {
+        "awardName": "Screen Actors Guild Award for Outstanding Performance",
+        "year": 2013
+      }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Robert_Downey_Jr_Cannes_2014.jpg/800px-Robert_Downey_Jr_Cannes_2014.jpg"
+    ]
+  },
+  {
+    "name": "Julia Roberts",
+    "biography": "Julia Roberts is an American actress and producer known for her roles in 'Pretty Woman', 'Erin Brockovich', and 'Steel Magnolias'. She is celebrated for her versatile acting skills and charismatic presence.",
+    "awards": [
+      { "awardName": "Academy Award for Best Actress", "year": 2001 },
+      { "awardName": "Golden Globe Award for Best Actress", "year": 2001 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Julia_Roberts_at_the_2014_Mayfair_Spring_Gala.jpg/800px-Julia_Roberts_at_the_2014_Mayfair_Spring_Gala.jpg"
+    ]
+  },
+  {
+    "name": "Ridley Scott",
+    "biography": "Ridley Scott is a British filmmaker known for his work in science fiction and historical dramas, including 'Alien', 'Blade Runner', and 'Gladiator'.",
+    "awards": [
+      { "awardName": "Academy Award for Best Picture", "year": 2001 },
+      { "awardName": "BAFTA Fellowship", "year": 2011 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Ridley_Scott_%28cropped%29.jpg/800px-Ridley_Scott_%28cropped%29.jpg"
+    ]
+  },
+  {
+    "name": "Emma Stone",
+    "biography": "Emma Stone is an American actress known for her roles in 'La La Land', 'The Help', and 'Easy A'. She has received critical acclaim for her performances and won an Academy Award.",
+    "awards": [
+      { "awardName": "Academy Award for Best Actress", "year": 2017 },
+      { "awardName": "Golden Globe Award for Best Actress", "year": 2017 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Emma_Stone_in_October_2014.jpg/800px-Emma_Stone_in_October_2014.jpg"
+    ]
+  },
+  {
+    "name": "Alfonso Cuarón",
+    "biography": "Alfonso Cuarón is a Mexican filmmaker known for his innovative and visually stunning films such as 'Gravity', 'Roma', and 'Children of Men'.",
+    "awards": [
+      { "awardName": "Academy Award for Best Director", "year": 2019 },
+      { "awardName": "BAFTA Award for Best Director", "year": 2019 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Alfonso_Cuar%C3%B3n.jpg/800px-Alfonso_Cuar%C3%B3n.jpg"
+    ]
+  },
+  {
+    "name": "Charlize Theron",
+    "biography": "Charlize Theron is a South African and American actress and producer known for her roles in 'Monster', 'Mad Max: Fury Road', and 'Atomic Blonde'. She has received numerous awards, including an Academy Award.",
+    "awards": [
+      { "awardName": "Academy Award for Best Actress", "year": 2004 },
+      { "awardName": "Golden Globe Award for Best Actress", "year": 2004 }
+    ],
+    "photos": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Charlize_Theron_at_Cannes_2017.jpg/800px-Charlize_Theron_at_Cannes_2017.jpg"
+    ]
+  }
+]

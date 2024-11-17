@@ -2,6 +2,7 @@ const User = require("../models/User");
 const auth = require("../utils/authUtils");
 const Review = require("../models/Review");
 const List = require("../models/List");
+const mongoose = require("mongoose");
 const {
   findUserById,
   findMovieById,
@@ -75,6 +76,11 @@ exports.updateUser = async (req, res) => {
   const { userId } = req.params;
 
   try {
+    // check if userId is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({ message: "Invalid user ID" });
+    }
+
     const user = await findUserById(userId);
     Object.keys(req.body).forEach((key) => {
       if (user[key] !== undefined) user[key] = req.body[key];
@@ -91,6 +97,11 @@ exports.deleteUser = async (req, res) => {
   const { id } = req.params;
 
   try {
+    // check if userId is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: "Invalid user ID" });
+    }
+
     await User.findByIdAndDelete(id);
     res.status(200).json({ message: "User deleted successfully" });
   } catch (error) {
@@ -102,6 +113,11 @@ exports.getUser = async (req, res) => {
   const { userId } = req.params;
 
   try {
+    // check if userId is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({ message: "Invalid user ID" });
+    }
+
     const user = await findUserById(userId);
     return res.status(200).json({ user });
   } catch (error) {
@@ -109,34 +125,39 @@ exports.getUser = async (req, res) => {
   }
 };
 
-exports.addReview = async (req, res) => {
-  const { userId, movieId, reviewText, ratingValue } = req.body;
+// exports.addReview = async (req, res) => {
+//   const { userId, movieId, reviewText, ratingValue } = req.body;
 
-  try {
-    await findUserById(userId);
-    await findMovieById(movieId);
+//   try {
+//     await findUserById(userId);
+//     await findMovieById(movieId);
 
-    const review = new Review({
-      user: userId,
-      movie: movieId,
-      reviewText,
-      ratingValue,
-    });
-    await review.save();
+//     const review = new Review({
+//       user: userId,
+//       movie: movieId,
+//       reviewText,
+//       ratingValue,
+//     });
+//     await review.save();
 
-    return res
-      .status(200)
-      .json({ review, message: "Review added successfully" });
-  } catch (error) {
-    handleError(res, error);
-  }
-};
+//     return res
+//       .status(200)
+//       .json({ review, message: "Review added successfully" });
+//   } catch (error) {
+//     handleError(res, error);
+//   }
+// };
 
 exports.addList = async (req, res) => {
   const { userId } = req.params;
   const { name, movies } = req.body;
 
   try {
+    // Check if userId is a valid objectId
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({ message: "Invalid user ID" });
+    }
+
     const user = await findUserById(userId);
 
     const list = new List({ name, owner: userId, movies });
@@ -155,6 +176,11 @@ exports.getUserLists = async (req, res) => {
   const { userId } = req.params;
 
   try {
+    // Check if userId is a valid objectId
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({ message: "Invalid user ID" });
+    }
+
     const user = await User.findById(userId).populate({
       path: "lists",
       populate: { path: "movies", model: "Movie" },
@@ -171,6 +197,13 @@ exports.followList = async (req, res) => {
   const { userId, listId } = req.params;
 
   try {
+    // Check if userId and listId are valid objectIds
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({ message: "Invalid user ID" });
+    }
+    if (!mongoose.Types.ObjectId.isValid(listId)) {
+      return res.status(400).json({ message: "Invalid list ID" });
+    }
     const user = await findUserById(userId);
     const list = await findListById(listId);
 
@@ -192,6 +225,14 @@ exports.addToWishlist = async (req, res) => {
   const { userId, movieId } = req.params;
 
   try {
+    // Check if userId and movieId are valid objectIds
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({ message: "Invalid user ID" });
+    }
+    if (!mongoose.Types.ObjectId.isValid(movieId)) {
+      return res.status(400).json({ message: "Invalid movie ID" });
+    }
+
     const user = await findUserById(userId);
     await findMovieById(movieId);
 

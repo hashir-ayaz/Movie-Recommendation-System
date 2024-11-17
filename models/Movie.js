@@ -5,7 +5,7 @@ const MovieSchema = new Schema({
   title: {
     type: String,
     required: [true, "Title is required"],
-    unique: false,
+    // unique: false,
     trim: true,
   },
   genre: [
@@ -29,7 +29,7 @@ const MovieSchema = new Schema({
   imdbRating: {
     type: Number,
     required: [true, "IMDB rating is required"],
-    unique: true,
+    unique: false,
   },
   releaseDate: {
     type: Date,

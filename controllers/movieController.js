@@ -1,12 +1,17 @@
 const Movie = require("../models/Movie");
 const Review = require("../models/Review");
 const User = require("../models/User");
+const mongoose = require("mongoose");
 
 exports.getMovies = async (req, res) => {
   try {
-    const movies = await Movie.find();
-    return res.status(200).json({ movies: movies });
+    const movies = await Movie.find()
+      .populate("director", "name") // Populate director with only the name field
+      .populate("cast", "name"); // Populate cast with only the name field
+
+    return res.status(200).json({ movies });
   } catch (error) {
+    console.error("Error fetching movies:", error);
     return res.status(500).json({ message: error.message });
   }
 };
@@ -58,6 +63,11 @@ exports.updateMovie = async (req, res) => {
   const { id } = req.params; // Extract movie ID from route parameter
 
   try {
+    // Check if movie ID is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: "Invalid movie ID" });
+    }
+
     // Find the movie by ID
     const movie = await Movie.findById(id);
 
@@ -92,6 +102,11 @@ exports.getMovie = async (req, res) => {
   const { id } = req.params;
 
   try {
+    // check if movie Id is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: "Invalid movie ID" });
+    }
+
     const movie = await Movie.findById(id);
     return res.status(200).json({ movie });
   } catch (error) {
@@ -106,6 +121,11 @@ exports.addReview = async (req, res) => {
   const { ratingValue, reviewText } = req.body; // Extract review data from request body
 
   try {
+    // check if movieId is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(movieId)) {
+      return res.status(400).json({ message: "Invalid movie ID" });
+    }
+
     // Check if movie exists
     const movieFound = await Movie.findById(movieId);
     if (!movieFound) {
