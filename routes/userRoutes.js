@@ -7,6 +7,12 @@ const { protect, adminProtect } = require("../middleware/authMiddleware");
 router.post("/login", userController.login);
 router.post("/register", userController.register);
 
+router.get(
+  "/personalised-recommendations",
+  protect,
+  userController.getPersonalisedRecommendations
+);
+
 // User Management Routes
 router.get("/", protect, adminProtect, userController.getAllUsers); // Admin protected
 router.get("/:userId", protect, userController.getUser);
@@ -27,12 +33,6 @@ router.post(
   "/:userId/wishlist/:movieId",
   protect,
   userController.addToWishlist
-);
-
-router.get(
-  "/:userId/personalised-recommendations",
-  protect,
-  userController.getPersonalisedRecommendations
 );
 
 module.exports = router;

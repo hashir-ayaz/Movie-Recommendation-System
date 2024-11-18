@@ -5,11 +5,32 @@ const mongoose = require("mongoose");
 
 exports.getMovies = async (req, res) => {
   try {
+    // Extract query parameters for pagination
+    const { page = 1, limit = 10 } = req.query; // Default to page 1 and 10 movies per page
+
+    // Convert query parameters to integers
+    const pageInt = parseInt(page, 10);
+    const limitInt = parseInt(limit, 10);
+
+    // Fetch the movies with pagination
     const movies = await Movie.find()
       .populate("director", "name") // Populate director with only the name field
-      .populate("cast", "name"); // Populate cast with only the name field
+      .populate("cast", "name") // Populate cast with only the name field
+      .skip((pageInt - 1) * limitInt) // Skip movies for previous pages
+      .limit(limitInt); // Limit the number of movies returned
 
-    return res.status(200).json({ movies });
+    // Get the total count of movies for calculating total pages
+    const totalMovies = await Movie.countDocuments();
+
+    return res.status(200).json({
+      movies,
+      pagination: {
+        currentPage: pageInt,
+        totalPages: Math.ceil(totalMovies / limitInt),
+        totalMovies,
+        moviesPerPage: limitInt,
+      },
+    });
   } catch (error) {
     console.error("Error fetching movies:", error);
     return res.status(500).json({ message: error.message });
